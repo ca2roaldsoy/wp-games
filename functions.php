@@ -56,13 +56,14 @@ function get_games_from_api() {
         return false;
     }
 
-    // add games to admin custom filed -> game
+   
     $games[] = $results;
 
+    // loop through the games
     foreach($games[0] as $game) {
         $gameSlug = $game->slug;
 
-        // update game in case of changes
+         // add games to custom field -> game
         $currentGame = get_page_by_path( $gameSlug, "OBJECT", "game" );
         
         if ($currentGame === null) {
@@ -100,7 +101,7 @@ function get_games_from_api() {
             $currentGame_timestamp = get_field("updated", $currentGame_ID);
 
             if($game->updated >= $currentGame_timestamp) {
-                // update post 
+                // update games if updated 
                 $fieldKeys = [
                     "field_6058f938a62ca" => "name",
                     "field_6058f966a62cb" => "id",
