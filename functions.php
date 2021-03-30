@@ -1,15 +1,15 @@
 <?php
 
-function gamerRevolutionFiles () {
-    //wp_enqueue_script("gamer_revolution_script", get_theme_file_uri("/js/script.js"), NULL, 1.0, true); // JavaScript
+require get_theme_file_path('/inc/game-search.php');
+
+function gamerRevolutionFiles() {
+    wp_enqueue_script("gamer_revolution_script", get_theme_file_uri("/js/script.js"), null, 1.0, true); // JavaScript
+    wp_enqueue_style("bootstrapCSS", "//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"); // Bootstrap Icons
     wp_enqueue_style("bootstrap", "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"); // Bootstrap
     wp_enqueue_style("gamer_revolution_styles", get_stylesheet_uri()); // CSS
-    wp_localize_script("gamer_revolution_script", "gamerRevData", array(
-        "siteID" => get_the_ID()
-    ));
+ 
 }
-
-add_action("wp_enqueue_scripts", "gamerRevolutionFiles");
+    add_action("wp_enqueue_scripts", "gamerRevolutionFiles");
 
 function gamerRevolutionTitle() {
     add_theme_support("title-tag");
@@ -22,7 +22,9 @@ function registerGamerRevolution() {
     register_post_type( "game", [
         "label" => "Games",
         "public" => true,
-        "capability_type" => "post"
+        "capability_type" => "post",
+        "show_in_rest" => true,
+        "has_archive" => true
     ] );
 }
 
@@ -56,7 +58,6 @@ function get_games_from_api() {
         return false;
     }
 
-   
     $games[] = $results;
 
     // loop through the games

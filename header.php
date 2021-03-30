@@ -5,7 +5,7 @@
     </head>
     <body>
         <header>
-            <h1> <a href="<?php echo site_url("/"); ?>">Gamer Revolution</h1>
+            <h1> <a href="<?php echo site_url("/"); ?>">Gamer Revolution </a></h1>
             <nav role="navigation">
                 <ul>
                     <li><a href="<?php echo site_url("/playstation-5"); ?>">PS5</a></li>
@@ -16,4 +16,6 @@
                     <li><a href="<?php echo site_url("/pc"); ?>">PC</a></li>
                 </ul>
             </nav>
-        </a>
+    
+            <input type="text" name="search" id="searchGame" placeholder="Search for a game...">
+        </header>
