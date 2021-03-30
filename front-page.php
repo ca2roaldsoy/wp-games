@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<input type="text" name="search" id="searchGame" placeholder="Search for a game...">
-
 <main role="main" class="logo__images">
     <section class="logo">
         <a title="Playstation 5" href="<?php echo site_url("/playstation-5"); ?>">
