@@ -1,0 +1,18 @@
+// RESET
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import "base/_variables";
+@import "base/_typography";
+@import "base/_mixins";
+@import "components/_menu";
+@import "components/_buttons";
+@import "layout/_footer";
+@import "layout/_header";
+@import "pages/_details";
+@import "pages/_games";
+@import "pages/_home";

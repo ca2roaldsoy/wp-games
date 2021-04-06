@@ -3,13 +3,26 @@
 require get_theme_file_path('/inc/game-search.php');
 
 function gamerRevolutionFiles() {
-    wp_enqueue_script("gamer_revolution_script", get_theme_file_uri("/js/script.js"), null, 1.0, true); // JavaScript
     wp_enqueue_style("bootstrapCSS", "//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"); // Bootstrap Icons
-    wp_enqueue_style("bootstrap", "//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"); // Bootstrap
-    wp_enqueue_style("gamer_revolution_styles", get_stylesheet_uri()); // CSS
- 
+    wp_enqueue_style("bootstrap", "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); // Bootstrap
+    wp_enqueue_style('our-main-styles', get_template_directory_uri() . '/sass/style.css');
+    wp_enqueue_script('gamer-revolution-js', get_theme_file_uri('/js/scripts.js'), NULL, '1.0', true);
+    
+    /*if(strstr($_SERVER['SERVER_NAME'], 'gamerrevolution.local')) {
+        wp_enqueue_script("gamer-revolution-js", 'http://localhost:3000/bundled.js', null, 1.0, true); // JavaScript
+    
+    } else {
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/undefined'), NULL, '1.0', true);
+        wp_enqueue_script('gamer-revolution-js', get_theme_file_uri('/bundled-assets/scripts.1946d90fd9edcddd3e42.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/undefined'));
+    }*/
+
+    wp_localize_script('gamer-revolution-js', 'revolutionData', array(
+        'root_url' => get_site_url()
+    ));
 }
-    add_action("wp_enqueue_scripts", "gamerRevolutionFiles");
+
+add_action("wp_enqueue_scripts", "gamerRevolutionFiles");
 
 function gamerRevolutionTitle() {
     add_theme_support("title-tag");

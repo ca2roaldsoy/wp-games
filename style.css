@@ -3,21 +3,3 @@
     Author: Cato
     Version: 1.0
 */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1 {
-    color: yellow;
-}
-
-.description {
-    color: aqua;
-}
-
-body {
-    color: blue;
-}

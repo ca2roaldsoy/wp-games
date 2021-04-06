@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.title {
+  flex: 2;
+}
+
+.nav__items {
+  display: flex;
+  list-style-type: none;
+  padding-right: 25px;
+  align-items: center;
+  margin-top: 10px;
+}
+.nav__items--link {
+  text-decoration: none;
+  padding-left: 50px;
+}
+
+.searchGame {
+  margin-left: 15px;
+  flex: 1;
+  height: 10px;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.searchResults {
+  display: flex;
+  justify-content: flex-end;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  margin-bottom: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+}
+.searchResults::-webkit-scrollbar {
+  display: none;
+}
+.searchResults__head > tr > td {
+  padding-right: 50px;
+  border: none;
+  overflow: hidden;
+}
+
+.searchResultsDropDown {
+  animation: dropdown 3s ease-out;
+}
+
+@keyframes dropdown {
+  to {
+    height: 200px;
+  }
+}
+.logo__images {
+  background-image: url("../../gamer-revolution-theme/images/game_img_backgr.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 175px;
+}
+
+.ps5, .ps4 {
+  background-color: lightblue;
+}
+
+.xone {
+  background-color: lightgreen;
+}
+
+.xseries {
+  background-color: green;
+}
+
+.pc {
+  background-color: black;
+}
+
+.switch {
+  background-color: red;
+}
+
+.row {
+  margin-left: 15px;
+  padding: 50px;
+}
+
+.logo {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.logo__inner {
+  border: 1px solid;
+  height: auto;
+}
+.logo__inner--img {
+  width: 100%;
+  height: auto;
+  padding: 25px 50px;
+}
+.logo__inner--img:hover {
+  outline: 1px solid white;
+}
+
+.content {
+  border: 1px solid;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.contentTitle {
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  padding-top: 25px;
+  font-size: 32px;
+}
+
+/*# sourceMappingURL=style.css.map */

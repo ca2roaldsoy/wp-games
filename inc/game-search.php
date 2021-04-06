@@ -1,7 +1,7 @@
 <?php
 
 function gameRegisterSearch() {
-    register_rest_route('game/v1', 'search', array(
+    register_rest_route('game/v1/', 'search', array(
         'methods' => WP_REST_SERVER::READABLE,
         'callback' => 'gameSearchResults'
     ));
@@ -18,8 +18,11 @@ function gameSearchResults($data) {
     while($games->have_posts()) {
         $games->the_post();
         array_push($gameResults, array(
-            'title' => get_the_title(),
-            'link' => get_the_permalink()
+            'title' => get_field('name'),
+            'image' => get_field('background_image'),
+            'rating' => get_field('rating'),
+            'platform' => get_field('platform'),
+            'link' => get_the_permalink(),
         ));
     } 
 

@@ -1,0 +1,73 @@
+.logo__images {
+    background-image: url("../../gamer-revolution-theme/images/game_img_backgr.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:scroll;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    padding-top: 175px;
+}
+
+.ps5, .ps4 {
+    background-color: lightblue;
+}
+
+.xone {
+    background-color: lightgreen;
+}
+
+.xseries {
+    background-color: green;
+}
+
+.pc {
+    background-color: black;
+}
+
+.switch {
+    background-color: red;
+}
+
+
+.row {
+    margin-left: 15px;
+    padding: 50px;
+}
+
+.logo {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+
+    &__inner {
+        border: 1px solid;
+        height: auto;
+
+        &--img {
+            width: 100%;
+            height: auto;
+            padding: 25px 50px;
+
+            &:hover {
+                outline: 1px solid white;
+            }
+        }
+    }
+}
+
+.content {
+    border: 1px solid;
+    height: auto;
+    background-color: rgba(0,0,0,0.8);
+    
+}
+
+.contentTitle {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    padding-top: 25px;
+    font-size: 32px;
+}
