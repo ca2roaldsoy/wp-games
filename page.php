@@ -7,29 +7,59 @@ function gameQuery($platform) {
     $paged = get_query_var('paged') ? get_query_var('paged') : 0;
 
     $gameQuery = new WP_Query(array(
-    'posts_per_page' => 5,
-    'post_type' => 'game',
-    'paged' => $paged,
-    'meta_query' => array(
-        array(
-            'key' => 'platform',
-            'compare' => 'LIKE',
-            'value' => $platform,
+        'posts_per_page' => 16,
+        'post_type' => 'game',
+        'paged' => $paged,
+        'meta_query' => array(
+            array(
+                'key' => 'platform',
+                'compare' => 'LIKE',
+                'value' => $platform,
+            )
         )
-    )
-)); 
+    ))
 
-    while ($gameQuery->have_posts()) {
-        $gameQuery->the_post(); ?>
-        
-        <li><a href="<?php the_permalink(); ?>"> <?php the_field('name') ?></a></li>;
-    <?php } 
+    ?>
+    <h1 class='platformTitle'><?php the_title(); ?></h1>
+    <article role="article" class="container-fluid">
+        <div class="row">
+            <?php
+            while ($gameQuery->have_posts()) {
+                $gameQuery->the_post(); ?>
+                <section class="card-deck col-lg-3">
+                    <a href='<?php the_permalink() ?>' class="card-game-link">
+                        <div class="card">
+                            <img class="card-img-top" src='<?php the_field("background_image") ?>' alt='<?php the_field('name') ?>'>
+                            <div class="card-body">
+                                <h5><?php the_field('name'); ?></h5>
+                                <p> 
+                                    <?php
+                                    $rating = get_field('rating');
+                                    for($i=1; $i <= ceil($rating); $i++) {
+                                        if($i == ceil($rating)) {
+                                            echo str_repeat("<span><i class='bi bi-star-fill'></i></span>", $i);
+                                        }   
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </section>
 
+            <?php } ?>
+        </div>
+    </article>
+    <hr />
+
+    <?php
     // Pagination
     $total_pages = $gameQuery->max_num_pages;
     if($total_pages > 1) {
         $current_page = max(1, get_query_var('paged'));
 
+
+        echo "<section class='pagination'>";
         echo paginate_links( array(
             'base' => get_pagenum_link(1) . '%_%',
             'format' => '/page/%#%',
@@ -39,7 +69,10 @@ function gameQuery($platform) {
             'next_text'    => ('next »'),
             'add_args'  => array()
         ));
+        echo "</section>";
+        
     }
+    get_footer();
 }
 
 $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ];
@@ -63,6 +96,5 @@ switch ($pageID) {
 
 wp_reset_postdata();
 
-get_footer();
 
 ?>
