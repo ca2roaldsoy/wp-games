@@ -25,8 +25,7 @@ $results = json_decode($results);
     echo "<h1 class='gameTitle'>" . the_field('name') . "</h1>";
     echo "<p class='description'>" . $results->description_raw . "</p>";
     ?>
-
-
+    
     <section class='videoclip col-md-12'>
     <figure class='col-md-6'>
     <?php
