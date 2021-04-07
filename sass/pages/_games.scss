@@ -1,0 +1,50 @@
+
+// Game Page
+.platformTitle {
+    text-align: center;
+    margin-top: 25px;
+}
+
+// Each Game
+.card-deck {
+    margin-bottom: 25px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    box-shadow: 1px 1px black;
+    text-align: center;
+    min-height: 350px;
+
+    &:hover {
+        box-shadow: 2px 2px black;
+    }
+
+    &-body {
+        background-color: lightgrey;
+    }
+
+    &-img-top {
+        min-height: 200px;
+    }
+
+    &-game-link:hover {
+        text-decoration: none;
+    }
+}
+
+// Pagination
+.pagination {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.page, .page-numbers, .next-page-numbers {
+    padding-left: 5px;
+}
