@@ -3,48 +3,61 @@ const searchResultsTable = document.querySelector('.searchResults')
 const searchResultsRow = document.querySelector('.searchResults__head')
 let previousValue;
 let valueTimer;
+let loading = false;
 console.log(searchGame);
 
 searchGame.addEventListener("keyup", timer);
 
 function timer() {
+
+    if(loading) {
+        searchResultsTable.classList.add('searchResultsDropDown');
+        searchResultsRow.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
+    }
+
     if(searchGame.value != previousValue) {
         clearTimeout(valueTimer);
 
-        if(searchGame.value) {
+        if(searchGame.value.length > 2) {
+            loading = true;
             valueTimer = setTimeout(() => {
                 getResults();
             }, 750);
+        } else {
+            searchResultsTable.classList.remove('searchResultsDropDown');
+            searchResultsRow.innerHTML = "";
         }
     }
+
     previousValue = searchGame.value;
 }
 
 async function getResults() {
 
-    const api = "http://gamerrevolution.local/wp-json/game/v1/search?value=" + searchGame.value;
-    console.log(api);
-
     try {
       const response = await fetch("http://gamerrevolution.local/wp-json/game/v1/search?value=" + searchGame.value);
       const results = await response.json();
-      console.log(response);
-
+      
         if(results.length > 0) {
-            searchResultsTable.classList += ' searchResultsDropDown';
+            loading = false;
+            if(!loading) {
+                searchResultsRow.removeChild(searchResultsRow.childNodes[0]);
+            }
+            searchResultsTable.classList.add('searchResultsDropDown');
+
             for (let i=0; i < results.length; i++) {
                 
-
                 function gamePlatforms(platforms) {
                     return `
                         ${platforms.map(platform => 
-                            `<span>${platform.platform.name}</span>`
+                            `<span>${platform.platform.name}</span>
+                            `
                         )}
                     `
                 }
 
                 function gameRating(rating) {
-                   let ratings = Math.floor(rating);
+                   let ratings = Math.ceil(rating);
 
                    for(let i=1; i <= ratings; i++) {
 
@@ -66,18 +79,24 @@ async function getResults() {
                        
                     `
                 }
+
                 searchResultsRow.innerHTML += `
                 ${gameResultsTable()}
                 `  
             }
         } else {
-            return;
+            loading = false;
+            searchResultsRow.removeChild(searchResultsRow.childNodes[0]);
+            searchResultsTable.classList.add('searchResultsDropDown');
+            searchResultsRow.innerHTML += `
+                <tr>
+                    <td>Sorry, no games found</td>
+                </tr>   
+            `  
         }   
     }
     
     catch (e) {
         console.log(e)
     }
-
-
 }
