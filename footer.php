@@ -23,11 +23,6 @@
         ><i class="bi bi-instagram"></i
       ></a>
 
-      <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="bi bi-linkedin-in"></i
-      ></a>
-
       <!-- Github -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="bi bi-github"></i
