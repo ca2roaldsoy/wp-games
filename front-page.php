@@ -4,6 +4,7 @@
     <div class="container content">
     <h1 class="contentTitle">CHOOSE A PLATFORM</h1>
         <div class="row">
+            <!-- Playstation 5 -->
             <section class="logo col-lg-4">
                 <div class="logo__inner">
                 <a title="Playstation 5" href="<?php echo site_url("/playstation-5"); ?>">
@@ -12,6 +13,7 @@
                 </div>
             </section>
 
+            <!-- Playstation 4 -->
             <section class="logo col-lg-4">
             <div class="logo__inner">
                 <a title="Playstation 4" href="<?php echo site_url("/playstation-4"); ?>">
@@ -20,6 +22,7 @@
                 </div>
             </section>
 
+            <!-- Xbox One -->
             <section class="logo col-lg-4">
             <div class="logo__inner">
                 <a title="Xbox One" href="<?php echo site_url("/xbox-one"); ?>">
@@ -27,6 +30,7 @@
                     </div>
                 </section>
 
+            <!-- Windows -->
             <section class="logo col-lg-4">
             <div class="logo__inner">
                 <a title="PC" href="<?php echo site_url("/pc"); ?>">
@@ -35,6 +39,7 @@
                 </div>
             </section>
 
+            <!-- Nintendo Switch -->
             <section class="logo col-lg-4">
             <div class="logo__inner">
                 <a title="Nintendo Switch" href="<?php echo site_url("/nintendo-switch"); ?>">
@@ -43,6 +48,7 @@
                 </div>
             </section>
 
+            <!-- Xbox Series X/S -->
             <section class="logo col-lg-4">
             <div class="logo__inner">
                 <a title="Xbox Series X/S" href="<?php echo site_url("/xbox-xs"); ?>">
@@ -51,7 +57,7 @@
                 </div>
             </section>
         </div>
-        </div>
+    </div>
 </main>
 
 <?php get_footer(); ?>
