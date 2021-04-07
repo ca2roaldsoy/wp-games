@@ -77,9 +77,9 @@ $results = json_decode($results);
         <?php
         $rating = get_field('rating');
 
-        for($i=1; $i <= floor($rating); $i++) {
+        for($i=1; $i <= ceil($rating); $i++) {
 
-            if($i == floor($rating)) {
+            if($i == ceil($rating)) {
                 echo str_repeat("<span><i class='bi bi-star-fill'></i></span>", $i);
             } 
         }
