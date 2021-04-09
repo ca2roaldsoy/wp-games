@@ -1,25 +1,20 @@
-let searchGame = document.querySelector('.searchGame');
+const searchGame = document.querySelector('.searchGame');
 const searchResultsTable = document.querySelector('.searchResults')
 const searchResultsRow = document.querySelector('.searchResults__head')
+let img = document.querySelector('.figure-img');
 let previousValue;
 let valueTimer;
-let loading = false;
-console.log(searchGame);
 
 searchGame.addEventListener("keyup", timer);
 
 function timer() {
 
-    if(loading) {
-        searchResultsTable.classList.add('searchResultsDropDown');
-        searchResultsRow.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
-    }
-
     if(searchGame.value != previousValue) {
         clearTimeout(valueTimer);
 
         if(searchGame.value.length > 2) {
-            loading = true;
+            searchResultsTable.classList.add('searchResultsDropDown');
+            searchResultsRow.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`;
             valueTimer = setTimeout(() => {
                 getResults();
             }, 750);
@@ -35,7 +30,7 @@ function timer() {
 async function getResults() {
 
     try {
-      const response = await fetch("http://gamerrevolution.local/wp-json/game/v1/search?value=" + searchGame.value);
+      const response = await fetch("http://gamerrevolution.local/wp-json/game/v2/search?value=" + searchGame.value);
       const results = await response.json();
       
         if(results.length > 0) {
@@ -50,8 +45,7 @@ async function getResults() {
                 function gamePlatforms(platforms) {
                     return `
                         ${platforms.map(platform => 
-                            `<span>${platform.platform.name}</span>
-                            `
+                            `<span>${platform.platform.name}</span>`
                         )}
                     `
                 }
@@ -73,7 +67,7 @@ async function getResults() {
                             <tr id='row-${i}'>
                                 <td><img src=${results[i].image} width='64px' alt='${results[i].title}'></td>
                                 <td><a href='${results[i].link}'>${results[i].title}</a></td>
-                                <td>${gamePlatforms(results[i].platform)}</td>
+                                <td>${gamePlatforms(results[i].platforms)}</td>
                                 <td>${gameRating(results[i].rating)}</td>
                             </tr>
                        
@@ -99,4 +93,21 @@ async function getResults() {
     catch (e) {
         console.log(e)
     }
+}
+
+// split url
+let path = window.location.pathname.split('/');
+
+// get "game"-part from url
+let pathPart = path[1];
+
+// add eventlistener if url contains game
+if(window.location.href == path[1]) {
+
+    img.addEventListener("click", (e) => {
+        console.log(e.target.src);
+            if(e.target.tagName == "img" && !e.target.hasAttribute("target")){
+                img.setAttribute("target", "_blank")
+            } 
+    })
 }
