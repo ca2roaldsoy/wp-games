@@ -5,8 +5,9 @@ require get_theme_file_path('/inc/game-search.php');
 function gamerRevolutionFiles() {
     wp_enqueue_style("bootstrapCSS", "//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"); // Bootstrap Icons
     wp_enqueue_style("bootstrap", "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); // Bootstrap
-    wp_enqueue_style('our-main-styles', get_template_directory_uri() . '/sass/style.css');
-    wp_enqueue_script('gamer-revolution-js', get_theme_file_uri('/js/scripts.js'), NULL, '1.0', true);
+    wp_enqueue_style('gamer-revolution-css', get_template_directory_uri() . '/sass/style.css');
+    wp_enqueue_script( 'gamer-revolution-js', get_theme_file_uri('js/scripts.js'), NULL, 1.0, true);
+    //wp_enqueue_script('gamer-revolution-script', get_theme_file_uri('js/scripts.js'), NULL, '3.0', true);
     
     /*if(strstr($_SERVER['SERVER_NAME'], 'gamerrevolution.local')) {
         wp_enqueue_script("gamer-revolution-js", 'http://localhost:3000/bundled.js', null, 1.0, true); // JavaScript
@@ -93,17 +94,17 @@ function get_games_from_api() {
             }
 
             $fieldKeys = [
-                "field_6058f938a62ca" => "name",
-                "field_6058f966a62cb" => "id",
-                "field_6058f98aa62cc" => "platforms",
-                "field_6058f9a3a62cd" => "rating",
-                "field_6058f9b3a62ce" => "background_image",
-                "field_6058f9dba62cf" => "clip",
-                "field_6058fa0aa62d0" => "slug",
-                "field_605902eb1741a" => "updated",
-                "field_605d0bbad0c93" => "released",
-                "field_605d0bf9d0c94" => "genres",
-                "field_605d0c12d0c95" => "short_screenshots"
+                "field_606e0057121c3" => "name",
+                "field_606e00d9121c5" => "id",
+                "field_606e0117121c9" => "platforms",
+                "field_606e010d121c8" => "rating",
+                "field_606e00f2121c7" => "background_image",
+                "field_606e0155121cb" => "clip",
+                "field_606e00ce121c4" => "slug",
+                "field_606e01bd7da19" => "updated",
+                "field_606e00e2121c6" => "released",
+                "field_606e014d121ca" => "genres",
+                "field_606e016b121cc" => "short_screenshots"
             ];
 
             foreach ($fieldKeys as $key => $name) {
@@ -116,18 +117,19 @@ function get_games_from_api() {
 
             if($game->updated >= $currentGame_timestamp) {
                 // update games if updated 
+              
                 $fieldKeys = [
-                    "field_6058f938a62ca" => "name",
-                    "field_6058f966a62cb" => "id",
-                    "field_6058f98aa62cc" => "platforms",
-                    "field_6058f9a3a62cd" => "rating",
-                    "field_6058f9b3a62ce" => "background_image",
-                    "field_6058f9dba62cf" => "clip",
-                    "field_6058fa0aa62d0" => "slug",
-                    "field_605902eb1741a" => "updated",
-                    "field_605d0bbad0c93" => "released",
-                    "field_605d0bf9d0c94" => "genres",
-                    "field_605d0c12d0c95" => "short_screenshots"
+                    "field_606e0057121c3" => "name",
+                    "field_606e00d9121c5" => "id",
+                    "field_606e0117121c9" => "platforms",
+                    "field_606e010d121c8" => "rating",
+                    "field_606e00f2121c7" => "background_image",
+                    "field_606e0155121cb" => "clip",
+                    "field_606e00ce121c4" => "slug",
+                    "field_606e01bd7da19" => "updated",
+                    "field_606e00e2121c6" => "released",
+                    "field_606e014d121ca" => "genres",
+                    "field_606e016b121cc" => "short_screenshots"
                 ];
         
                 foreach ($fieldKeys as $key => $name) {
