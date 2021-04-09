@@ -12,7 +12,7 @@ $results = json_decode($results);
             the_post();
 
     $clipArr = json_decode(json_encode(get_field_object('clip')), true);
-    $platformsArr = json_decode(json_encode(get_field_object('platform')), true);
+    $platformsArr = json_decode(json_encode(get_field_object('platforms')), true);
     $genresArr = json_decode(json_encode(get_field_object('genres')), true);
     $screenshotsArr = json_decode(json_encode(get_field_object('short_screenshots')), true);
     $platforms = $platformsArr['value'];
@@ -21,70 +21,79 @@ $results = json_decode($results);
 
     ?>
 
-    <?php
-    echo "<h1 class='gameTitle'>" . the_field('name') . "</h1>";
-    echo "<p class='description'>" . $results->description_raw . "</p>";
-    ?>
-    
-    <section class='videoclip col-md-12'>
-    <figure class='col-md-6'>
-    <?php
-    foreach($screenshots as $screenshot) {
-        echo "<img role='img' class='image__gallery col-md-4 col-lg-3' src='" . $screenshot['image'] . "'>";
-    } 
-    ?>
-    </figure>
-    </section>
+    <article role="article" class="gameDetails__content row">
 
-    <section class='videoclip col-md-12'>
-        <?php
-        $clip = $clipArr['value']['clip'];
-        ?>
-        <video controls class='videoplayer' width="720">
-            <source src='<?php echo $clip ?>' type='video/mp4'>
-            <!--Browser does not support <video> tag -->
-        </video>
-    </section>
+            <section class="top_content col-lg-12">
+                <section class='videoclip col-lg-6'>
+                    <?php
+                    $clip = $clipArr['value']['clip'];
+                    ?>
+                    <video controls class='videoplayer' width="720">
+                        <source src='<?php echo $clip ?>' type='video/mp4'>
+                        <!--Browser does not support <video> tag -->
+                    </video>
+                </section>
+
+                <section class="col-lg-6 top_content__info">
+                    <h1 class='gameTitle'><?php the_field('name'); ?></h1>
+                    <?php
+                        $rating = get_field('rating');
+                        for($i=1; $i <= ceil($rating); $i++) {
+                            if($i == ceil($rating)) {
+                                echo str_repeat("<i class='bi bi-star-fill col top_content__info--stars'></i>", $i);
+                            } 
+                        }
+                    ?>
+
+                    <section class='gameInfoDetail__released'>
+                        <h2>Released</h2>
+                        <p><?php the_field('released') ?></p>
+                   </section>
+               
+                </section>
+            </section>
+
+            <hr />
+            <section class='gameInfoDetail__description col-lg-12'>
+                <h2>DESCRIPTION</h2>
+                <?php echo "<p>" . $results->description_raw . "</p>"; ?>
+            </section>
+            
+            <hr />
+            <section class='gameInfoDetail__screenshots col-lg-12'>
+                <h2>SCREENSHOTS</h2>
+                <div class="row">
+                    <?php foreach($screenshots as $screenshot) {?>
+                        <figure class="col-md-4 col-lg-3">
+                            <?php
+                                echo "<a href='" . $screenshot['image'] . "'>"; 
+                                echo "<img role='img' class='img-fluid' src='" . $screenshot['image'] . "' target='_blank' alt='" . get_field('slug') . "'>";
+                                echo "</a>";
+                            ?>
+                        </figure>
+                    <?php } ?>
+                </div>    
+            </section>
 
 
-    <section class='gameInfo col-lg-12'>
-<?php
-    echo "<ul>";
-    echo "<li class='gameInfoDetail col-lg-6'> " . the_field('released') . "</li>";
-    echo "</ul>";
-    ?> 
-    </div>
-    </section>
+            <hr />
+            <section class="col-lg-12 gameInfoDetail__platforms">
+                <h2>PLATFORMS</h2>
+                <?php
+                foreach($platforms as $platform) {
+                    echo "<li>" . $platform['platform']['name'] . "</li>";
+                } ?>
+            </section>
 
-    <div class='col-lg-12'>
-    <?php
-    foreach($platforms as $platform) {
-        echo "<li class='gameInfoDetail col-md-4 col-lg-3'>" . $platform['platform']['name'] . "</li>";
-    } ?>
-    </div>
-
-    <div class='col-lg-12'>
-    <?php
-    foreach($genres as $genre) {
-        echo "<li class='gameInfoDetail col-md-4 col-lg-3'>" . $genre['name'] . "</li>";
-    } ?>
-    </div>
-
-
-    <div class='col-lg-12'>
-    <ul>Rating:</ul>
-        <?php
-        $rating = get_field('rating');
-
-        for($i=1; $i <= ceil($rating); $i++) {
-
-            if($i == ceil($rating)) {
-                echo str_repeat("<span><i class='bi bi-star-fill'></i></span>", $i);
-            } 
-        }
-        
-        ?>
-    </div>
+            <hr />
+            <section class="col-lg-12 gameInfoDetail__genres">
+                <h2>GENRES</h2>
+                <?php
+                foreach($genres as $genre) {
+                    echo "<li>" . $genre['name'] . "</li>";
+                } ?>
+            </section>
+    </article>
 
 <?php endwhile; ?>
 
