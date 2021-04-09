@@ -37,4 +37,6 @@
     © 2020 Copyright:
   </div>
   <!-- Copyright -->
+
+  <?php wp_footer(  ) ?>
 </footer>
