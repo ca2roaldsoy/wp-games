@@ -1,7 +1,7 @@
 <?php
 
 function gameRegisterSearch() {
-    register_rest_route('game/v1/', 'search', array(
+    register_rest_route('game/v2/', 'search', array(
         'methods' => WP_REST_SERVER::READABLE,
         'callback' => 'gameSearchResults'
     ));
@@ -21,7 +21,7 @@ function gameSearchResults($data) {
             'title' => get_field('name'),
             'image' => get_field('background_image'),
             'rating' => get_field('rating'),
-            'platform' => get_field('platform'),
+            'platforms' => get_field('platforms'),
             'link' => get_the_permalink(),
         ));
     } 
