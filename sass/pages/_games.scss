@@ -1,8 +1,10 @@
-
+.gamePage {
+    background-color: yellow;
+}
 // Game Page
 .platformTitle {
     text-align: center;
-    margin-top: 25px;
+    padding-top: 25px;
 }
 
 // Each Game
@@ -30,6 +32,7 @@
 
     &-img-top {
         min-height: 200px;
+        max-height: 210px;
     }
 
     &-game-link:hover {
@@ -42,7 +45,8 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    background-color: grey;
+    padding-bottom: 15px;
 }
 
 .page, .page-numbers, .next-page-numbers {
