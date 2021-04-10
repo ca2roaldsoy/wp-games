@@ -1,0 +1,467 @@
+@media only screen and (max-width: 767px) {
+
+    /************** Header **********/
+    header {
+        display: block;
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        margin: 10px 0 0 0;
+        padding-bottom: 15px;
+        max-width: 95%;
+
+
+        &>input {
+            margin: 0;
+        }
+    }
+
+    .title {
+        font-size: 2em;
+        text-align: center;
+    }
+
+     // Toggle Hamburger Menu
+     #menuToggle {
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+        }
+    
+        .hamburgerIcons {
+            z-index: 1;
+            margin-left: 50px;
+            
+            &>div {
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            background: #cdcdcd;
+            border-radius: 3px;
+            margin-top: 5px;
+            transition: transform 1s;
+    
+                &.barOne {
+                    transform: rotate(45deg) translate(0px, 10px);
+                }
+    
+                &.barTwo {
+                    opacity: 0;
+                    transform: rotate(0deg) scale(0.2, 0.2);
+                }
+    
+                &.barThree {
+                    transform: rotate(-45deg) translate(0px, -10px);
+                }
+            }
+        }
+    
+        #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
+        background-color: rgba(0,0,0,0.85);
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;   /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(-15px, -125vh);
+        transition: transform 1s;
+    
+            &>li {
+                font-size: 32px;
+                text-align: center;
+                margin-bottom: 50px;
+                margin-top: 25px;
+            }
+        }
+
+    /************** Front-page.php *************/
+    .logo__images {
+
+        background-size: auto;
+        padding: 10px;
+    }
+
+    .home-row {
+        flex-direction: column;
+
+    }
+
+
+    .logo {
+        padding-bottom: 20px;
+        &__inner {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+    }
+
+
+    /************** Page.php *************/
+    .card-row {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card-deck .card {
+        display: block;
+        margin: 0px auto;
+    }
+
+    .outer-card{
+        margin: 25px 0;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 325px; 
+        min-height: auto;
+        height: 100%;
+
+    }
+
+    /************** Single.php *************/
+
+    .gameDetails {
+        padding: 10px;
+    }
+
+    .gameDetails__content {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .top_content {
+        display: block;
+
+        &__info {
+            padding: 20px 10px;
+        }
+    }
+
+    .gameTitle {
+        text-align: center;
+    }
+
+    .videoclip {
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    .videoplayer {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+     /************** Header **********/
+    header {
+        display: flex;
+        padding-top: 5px;
+    }
+
+    #menu {
+        width: 100%;
+        justify-content: space-around;
+        position: absolute;
+        left: 0;
+        background-color: black;
+        margin: 0px;
+        padding: 10px 0;
+        border-top: 1px solid blue;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .searchGame {
+        width: 100%;
+        padding: 5px 25px 3px 10px;
+        margin: 10px 200px 20px 0px;
+    }
+
+    .searchResults {
+        top: 110px;
+    }
+
+    .title {
+        max-height: 25px;
+        font-size: 38px;
+    }
+
+    /************** Front-page.php *************/
+
+    .contentTitle {
+        padding-top: 70px;
+    }
+
+    .home-row {
+        padding: 45px;
+    }
+
+    .logo__images {
+        padding: 50px;
+        height: 100vh;
+        padding-top: 100px;
+    }
+
+    /************** Page.php *************/
+    .platformTitle {
+        padding-top: 70px;
+    }
+
+    .card-row {
+        margin: 0;
+        margin-right: 20px;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+    }
+
+    .outer-card {
+        margin-bottom: 25px;
+    }
+
+     /************** Single.php *************/
+
+     .gameDetails {
+        padding: 10px;
+    }
+
+    .gameDetails__content {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .top_content {
+        display: block;
+
+        &__info {
+            padding: 20px 10px;
+        }
+    }
+
+    .gameTitle {
+        text-align: center;
+    }
+
+    .videoclip {
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    .videoplayer {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+
+     /************** Header **********/
+     header {
+        display: flex;
+        padding-top: 5px;
+    }
+
+    #menu {
+        width: 100%;
+        justify-content: space-around;
+        position: absolute;
+        left: 0;
+        background-color: black;
+        margin: 0px;
+        padding: 10px 0;
+        border-top: 1px solid blue;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .searchGame {
+        width: 100%;
+        padding: 5px 25px 3px 10px;
+        margin: 10px 200px 20px 0px;
+    }
+
+     /************** Front-page.php *************/
+
+     .contentTitle {
+        padding-top: 70px;
+    }
+
+    .home-row {
+        padding: 45px;
+    }
+
+    .logo__images {
+        padding: 50px;
+        height: 100vh;
+        padding-top: 100px;
+    }
+
+    /************** Page.php *************/
+    .platformTitle {
+        padding-top: 70px;
+    }
+
+    .card-row {
+        margin: 0;
+        margin-right: 20px;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+    }
+
+    .outer-card {
+        margin-bottom: 25px;
+    }
+
+
+
+    /************** Single.php *************/
+    .gameDetails__content {
+        display: flex;
+        padding: 0;
+    }
+
+    .gameInfoDetail__released {
+        
+        margin-top: 85px;
+
+        &--title {
+        display: none;
+        }
+    }
+
+    .videoplayer {
+        width: 100%;
+        height: auto;
+    }
+
+    .top_content__info {
+        width: 100%;
+        height: auto;
+        padding: 0;
+
+        &>h1 {
+            font-size: 32px;
+            margin-top: 15px;
+        }
+         
+        &--stars {
+            top: 10%;
+        }
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    /************** Header *************/
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+
+    .searchGame {
+        margin-top: 5px;
+        padding: 15px;
+        padding-right: 50px;
+    }
+
+    /************** Front-page.php *************/
+    .logo__images {
+        padding: 50px;
+        height: 100vh;
+        padding-top: 145px;
+    }
+    
+    /************** Page.php *************/
+    .card {
+        width: 100%;
+        max-width: 350px;
+        min-height: 0;
+        height: auto;
+    }
+
+    .card-row {
+        margin: 0;
+    }
+
+    .outer-card {
+        margin-bottom: 25px;
+    }
+
+    /************** Single.php *************/
+    .gameDetails__content {
+        display: flex;
+    }
+
+    .videoplayer {
+        border: 1px solid;
+        width: 100%;
+    }
+    
+    .top_content {
+        display: flex;
+    
+        &__info {
+            width: 100%;
+            text-align: center;
+            border: 1px solid;
+            padding: 20px;
+            bottom: 20px;
+            background-color: rgba(0,0,0,0.7);
+            margin-top: 15px;
+            margin-bottom: -15px;
+            
+            
+            &--stars {
+             top: 50px;
+            }
+        }
+    }
+
+    .gameTitle {
+        font-size: 3.5vw;
+    }
+    
+    .gameInfoDetail {
+    
+        &__released {
+        margin-top: 90px;
+
+            &>h2 {
+                display: none;
+            }
+    
+            &>p {
+                font-size: 2vw;
+            }
+        }
+    }
+    
+}

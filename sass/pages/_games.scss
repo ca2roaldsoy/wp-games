@@ -8,14 +8,6 @@
 }
 
 // Each Game
-.card-deck {
-    margin-bottom: 25px;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
-}
 
 .card {
     box-shadow: 1px 1px black;
@@ -45,10 +37,13 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    background-color: grey;
+    background-color: lightgrey;
     padding-bottom: 15px;
+    font-size: 18px;
+
 }
 
 .page, .page-numbers, .next-page-numbers {
     padding-left: 5px;
+    padding-top: 10px;
 }

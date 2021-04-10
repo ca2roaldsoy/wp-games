@@ -4,27 +4,27 @@
     <!-- Section: Social media -->
     <section class="mb-4">
       <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light m-1" href="#!" role="button"
         ><i class="bi bi-facebook"></i
       ></a>
 
       <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light m-1" href="#!" role="button"
         ><i class="bi bi-twitter"></i
       ></a>
 
       <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light m-1" href="#!" role="button"
         ><i class="bi bi-google"></i
       ></a>
 
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light m-1" href="#!" role="button"
         ><i class="bi bi-instagram"></i
       ></a>
 
       <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light m-1" href="#!" role="button"
         ><i class="bi bi-github"></i
       ></a>
     </section>
@@ -38,5 +38,5 @@
   </div>
   <!-- Copyright -->
 
-  <?php wp_footer(  ) ?>
+  <?php wp_footer() ?>
 </footer>

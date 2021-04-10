@@ -1,9 +1,40 @@
 const searchGame = document.querySelector('.searchGame');
-const searchResultsTable = document.querySelector('.searchResults')
-const searchResultsRow = document.querySelector('.searchResults__head')
+const searchResultsTable = document.querySelector('.searchResults');
+const searchResultsRow = document.querySelector('.searchResults__head');
+const hamburger = document.querySelector(".hamburgerIcons");
+const navMenu = document.querySelector("#menu");
 let img = document.querySelector('.figure-img');
 let previousValue;
 let valueTimer;
+let ItemMenu = true;
+
+window.addEventListener("mouseup", function(e) {
+
+    if(e.target != searchResultsTable) {
+        searchResultsTable.classList.remove('searchResultsDropDown');
+        searchGame.value = "";
+    }
+});
+
+hamburger.addEventListener("click", function (e){
+
+    searchResultsTable.classList.remove('searchResultsDropDown');
+    searchGame.value = "";
+
+    if(ItemMenu) {
+        navMenu.style.transform = "translate(-15px, 2.7%)";
+        hamburger.childNodes[1].classList.add('barOne')
+        hamburger.childNodes[3].classList.add('barTwo');
+        hamburger.childNodes[5].classList.add('barThree');
+        ItemMenu = false;
+    } else if (!ItemMenu) {
+        navMenu.style.transform = "translate(-15px, -125vh)";
+        hamburger.childNodes[1].classList.remove('barOne')
+        hamburger.childNodes[3].classList.remove('barTwo');
+        hamburger.childNodes[5].classList.remove('barThree');
+        ItemMenu = true;
+    }
+})
 
 searchGame.addEventListener("keyup", timer);
 

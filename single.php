@@ -24,17 +24,17 @@ $results = json_decode($results);
     <article role="article" class="gameDetails__content row">
 
             <section class="top_content col-lg-12">
-                <section class='videoclip col-lg-6'>
+                <section class='videoclip col-sm-12 col-lg-6'>
                     <?php
                     $clip = $clipArr['value']['clip'];
                     ?>
-                    <video controls class='videoplayer' width="720">
+                    <video controls class='videoplayer'>
                         <source src='<?php echo $clip ?>' type='video/mp4'>
                         <!--Browser does not support <video> tag -->
                     </video>
                 </section>
 
-                <section class="col-lg-6 top_content__info">
+                <section class="col-sm-12 col-lg-6 top_content__info">
                     <h1 class='gameTitle'><?php the_field('name'); ?></h1>
                     <?php
                         $rating = get_field('rating');
@@ -44,9 +44,8 @@ $results = json_decode($results);
                             } 
                         }
                     ?>
-
                     <section class='gameInfoDetail__released'>
-                        <h2>Released</h2>
+                        <h2 class='gameInfoDetail__released--title'>Released</h2>
                         <p><?php the_field('released') ?></p>
                    </section>
                
@@ -54,13 +53,13 @@ $results = json_decode($results);
             </section>
 
             <hr />
-            <section class='gameInfoDetail__description col-lg-12'>
+            <section class='gameInfoDetail__description col-sm-12'>
                 <h2>DESCRIPTION</h2>
                 <?php echo "<p>" . $results->description_raw . "</p>"; ?>
             </section>
             
             <hr />
-            <section class='gameInfoDetail__screenshots col-lg-12'>
+            <section class='gameInfoDetail__screenshots col-sm-12'>
                 <h2>SCREENSHOTS</h2>
                 <div class="row">
                     <?php foreach($screenshots as $screenshot) {?>
@@ -77,7 +76,7 @@ $results = json_decode($results);
 
 
             <hr />
-            <section class="col-lg-12 gameInfoDetail__platforms">
+            <section class="col-sm-12 gameInfoDetail__platforms">
                 <h2>PLATFORMS</h2>
                 <?php
                 foreach($platforms as $platform) {
@@ -86,7 +85,7 @@ $results = json_decode($results);
             </section>
 
             <hr />
-            <section class="col-lg-12 gameInfoDetail__genres">
+            <section class="col-sm-12 gameInfoDetail__genres">
                 <h2>GENRES</h2>
                 <?php
                 foreach($genres as $genre) {

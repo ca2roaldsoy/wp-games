@@ -21,15 +21,14 @@ function gameQuery($platform) {
     ?>
     <article role="article" class="container-fluid gamePage">
     <h1 class='platformTitle'><?php the_title(); ?></h1>
-        <div class="row">
-            <?php
-            while ($gamesQuery->have_posts()) {
-                $gamesQuery->the_post();
-                
-                ?>
-                <section class="card-deck col-lg-3">
-                    <a href='<?php the_permalink() ?>' class="card-game-link">
+        <div class="card-deck">
+            <div class="card-row row">
+                <?php
+                while ($gamesQuery->have_posts()) {
+                    $gamesQuery->the_post();?>
+                    <section class="col-sm-12 col-md-6 col-lg-4 col-xl-3 outer-card">
                         <div class="card">
+                        <a href='<?php the_permalink() ?>' class="card-game-link">
                             <img class="card-img-top" src='<?php the_field("background_image") ?>' alt='<?php the_field('name') ?>'>
                             <div class="card-body">
                                 <h5><?php the_field('name'); ?></h5>
@@ -44,11 +43,12 @@ function gameQuery($platform) {
                                     ?>
                                 </p>
                             </div>
+                            </a>
                         </div>
-                    </a>
-                </section>
-
-            <?php } ?>
+                        
+                    </section>
+                <?php } ?>
+            </div>
         </div>
     </article>
 

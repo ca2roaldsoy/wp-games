@@ -3,10 +3,11 @@
 require get_theme_file_path('/inc/game-search.php');
 
 function gamerRevolutionFiles() {
-    wp_enqueue_style("bootstrapCSS", "//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"); // Bootstrap Icons
+    wp_enqueue_style("bootstrapIcons", "//cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"); // Bootstrap Icons
     wp_enqueue_style("bootstrap", "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); // Bootstrap
     wp_enqueue_style('gamer-revolution-css', get_template_directory_uri() . '/sass/style.css');
-    wp_enqueue_script( 'gamer-revolution-js', get_theme_file_uri('js/scripts.js'), NULL, 1.0, true);
+    wp_enqueue_script( 'bootstrap_js', '//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', NULL, 1.0, true );
+    wp_enqueue_script( 'gamer-revolution-js', get_theme_file_uri('/js/scripts.js'), NULL, 1.0, true);
     //wp_enqueue_script('gamer-revolution-script', get_theme_file_uri('js/scripts.js'), NULL, '3.0', true);
     
     /*if(strstr($_SERVER['SERVER_NAME'], 'gamerrevolution.local')) {
