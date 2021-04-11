@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
 <main role="main" class="logo__images">
+    <div class="intro">
+        <h1 class="text-center siteTitle">WELCOME TO GAMER REVOLUTION</h1>
+        <h2 class="text-center contentTitle__text">Our library holds over 1,000 Games</h2>
+    </div>
     <div class="container content">
-    <h1 class="contentTitle">CHOOSE A PLATFORM</h1>
+    <h2 class="text-center contentTitle">CHOOSE A PLATFORM</h2>
         <div class="row home-row">
             <!-- Playstation 5 -->
             <section class="logo col-sm-12 col-md-6 col-lg-4">
