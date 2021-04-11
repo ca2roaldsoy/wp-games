@@ -80,6 +80,10 @@
             }
         }
 
+        .searchResults {
+            flex-direction: column;
+        }
+
     /************** Front-page.php *************/
     .logo__images {
 
@@ -89,7 +93,7 @@
 
     .home-row {
         flex-direction: column;
-
+        padding: 0;
     }
 
 

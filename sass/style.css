@@ -5,6 +5,11 @@
           box-sizing: border-box;
 }
 
+@font-face {
+  font-family: EvilEmpire;
+  src: url("../../gamer-revolution-theme/fonts/EvilEmpire-4BBVK.ttf");
+}
+
 .nav__items {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15,16 +20,8 @@
       -ms-flex-align: center;
           align-items: center;
   margin-top: 10px;
-}
-
-.nav__items--link {
-  text-decoration: none;
-  padding-left: 50px;
-}
-
-li.current_page_item a {
-  text-decoration: underline;
-  background: #666;
+  font-family: "EvilEmpire";
+  font-size: 22px;
 }
 
 header {
@@ -53,6 +50,10 @@ header {
 
 .title > a:hover {
   text-decoration: none;
+}
+
+h1 {
+  font-family: "EvilEmpire";
 }
 
 .searchGame {
@@ -351,12 +352,14 @@ li.current_menu_item a {
 }
 
 .gamePage {
-  background-color: yellow;
+  background-color: #085c4e;
 }
 
 .platformTitle {
   text-align: center;
   padding-top: 25px;
+  color: white;
+  text-transform: uppercase;
 }
 
 .card {
@@ -367,12 +370,12 @@ li.current_menu_item a {
 }
 
 .card:hover {
-  -webkit-box-shadow: 2px 2px black;
-          box-shadow: 2px 2px black;
+  -webkit-box-shadow: 2px 2px white;
+          box-shadow: 2px 2px white;
 }
 
 .card-body {
-  background-color: lightgrey;
+  background-color: white;
 }
 
 .card-img-top {
@@ -409,6 +412,12 @@ li.current_menu_item a {
   background-size: cover;
   background-attachment: scroll;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.intro {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .ps5, .ps4 {
@@ -560,6 +569,12 @@ li.current_menu_item a {
     margin-bottom: 50px;
     margin-top: 25px;
   }
+  .searchResults {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   /************** Front-page.php *************/
   .logo__images {
     background-size: auto;
@@ -570,6 +585,7 @@ li.current_menu_item a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding: 0;
   }
   .logo {
     padding-bottom: 20px;

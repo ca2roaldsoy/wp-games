@@ -7,16 +7,7 @@
         padding-right: 25px;
         align-items: center;
         margin-top: 10px;
-       
-        &--link {
-            text-decoration: none;
-            padding-left: 50px;
-        }
+        font-family: "EvilEmpire";
+        font-size: 22px;
     }
-}
-
-// active page
-li.current_page_item a{
-    text-decoration:underline;
-    background:#666;
 }
