@@ -8,6 +8,7 @@ let previousValue;
 let valueTimer;
 let ItemMenu = true;
 
+// remove search results if user click outside
 window.addEventListener("mouseup", function(e) {
 
     if(e.target != searchResultsTable) {
@@ -16,6 +17,7 @@ window.addEventListener("mouseup", function(e) {
     }
 });
 
+// Hamburger toogle
 hamburger.addEventListener("click", function (e){
 
     searchResultsTable.classList.remove('searchResultsDropDown');
@@ -38,6 +40,7 @@ hamburger.addEventListener("click", function (e){
 
 searchGame.addEventListener("keyup", timer);
 
+// wait 750 ms before searching
 function timer() {
 
     if(searchGame.value != previousValue) {
@@ -58,6 +61,7 @@ function timer() {
     previousValue = searchGame.value;
 }
 
+// get search results
 async function getResults() {
 
     try {
@@ -130,10 +134,12 @@ async function getResults() {
 let path = window.location.pathname.split('/');
 
 // get "game"-part from url
-let pathPart = path[1];
+let gamePathPart = path[1];
+
+const gamePage = document.querySelector(".gamePage");
 
 // add eventlistener if url contains game
-if(window.location.href == path[1]) {
+if(window.location.href == gamePathPart) {
 
     img.addEventListener("click", (e) => {
         console.log(e.target.src);
@@ -141,4 +147,4 @@ if(window.location.href == path[1]) {
                 img.setAttribute("target", "_blank")
             } 
     })
-}
+};
