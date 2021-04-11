@@ -4,7 +4,6 @@ get_header();
 
 $results = wp_remote_retrieve_body(wp_remote_get("https://api.rawg.io/api/games/" . get_field('id')));
 $results = json_decode($results);
-
 ?>
 
 <main role="main" class="gameDetails container-fluid" style="background-image: url('<?php the_field('background_image'); ?>')">
